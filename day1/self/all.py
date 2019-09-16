@@ -73,7 +73,7 @@ print('-------------------------')
 
 
 
-print('2.1')
+print('example 2.1')
 def pumpkinStats(data):
     print('Mean - ',gen_stats.Mean(data))
     print('Variance - ',gen_stats.Var(data))
@@ -81,5 +81,13 @@ def pumpkinStats(data):
 
 pumpkin_data = [3,3,591]
 pumpkinStats(pumpkin_data)
+print('-------------------------')
 
-
+print('example 2.2')
+def calculate_gestation(a,b):
+    first_gest = [x.prglength for x in a if x.outcome == 1]
+    other_gest = [x.prglength for x in b if x.outcome == 1]
+    print('standard deviation of gestation period for first born - ',gen_stats.Standard_deviation(first_gest))
+    print('standard deviation of gestation period for non-first born - ',gen_stats.Standard_deviation(other_gest))
+calculate_gestation(firstbabies, otherbabies)
+print('-------------------------')
