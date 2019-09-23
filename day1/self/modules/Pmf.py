@@ -18,7 +18,6 @@ _DictWrapper: private parent class for Hist and Pmf.
 import logging
 import math
 import random
-import operator
 
 class _DictWrapper(object):
     """An object that contains a dictionary."""
@@ -34,11 +33,6 @@ class _DictWrapper(object):
         """Gets the dictionary."""
         return self.d
 
-    def Mode(self):
-        a = self.d;
-        mode = max(a.items(),key=operator.itemgetter(1))[0]
-        return mode
-
     def Values(self):
         """Gets an unsorted sequence of values.
 
@@ -47,6 +41,15 @@ class _DictWrapper(object):
         values are frequencies/probabilities.
         """
         return self.d.keys()
+    def Mode(self):
+        a = self.d;
+        mode = max(a.items(),key=operator.itemgetter(1))[0]
+        return mode
+
+    def Mode(self):
+        a = self.d;
+        mode = max(a.items(),key=operator.itemgetter(1))[0]
+        return mode
 
     def Items(self):
         """Gets an unsorted sequence of (value, freq/prob) pairs."""
@@ -104,12 +107,12 @@ class _DictWrapper(object):
 
     def Total(self):
         """Returns the total of the frequencies/probabilities in the map."""
-        total = sum(self.d.items())
+        total = sum(self.d.values())
         return total
 
     def MaxLike(self):
         """Returns the largest frequency/probability in the map."""
-        return max(self.d.items())
+        return max(self.d.values())
 
 
 class Hist(_DictWrapper):

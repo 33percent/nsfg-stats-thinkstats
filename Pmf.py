@@ -98,12 +98,12 @@ class _DictWrapper(object):
 
     def Total(self):
         """Returns the total of the frequencies/probabilities in the map."""
-        total = sum(self.d.itervalues())
+        total = sum(self.d.items())
         return total
 
     def MaxLike(self):
         """Returns the largest frequency/probability in the map."""
-        return max(self.d.itervalues())
+        return max(self.d.items())
 
 
 class Hist(_DictWrapper):
@@ -153,7 +153,7 @@ class Hist(_DictWrapper):
 
 class Pmf(_DictWrapper):
     """Represents a probability mass function.
-    
+
     Values can be any hashable type; probabilities are floating-point.
     Pmfs are not necessarily normalized.
     """
@@ -195,11 +195,11 @@ class Pmf(_DictWrapper):
             raise ValueError('total probability is zero.')
             logging.warning('Normalize: total probability is zero.')
             return
-        
+
         factor = float(fraction) / total
         for x in self.d:
             self.d[x] *= factor
-    
+
     def Random(self):
         """Chooses a random element from this PMF.
 
@@ -208,7 +208,7 @@ class Pmf(_DictWrapper):
         """
         if len(self.d) == 0:
             raise ValueError('Pmf contains no values.')
-            
+
         target = random.random()
         total = 0.0
         for x, p in self.d.iteritems():
@@ -242,7 +242,7 @@ class Pmf(_DictWrapper):
         """
         if mu is None:
             mu = self.Mean()
-            
+
         var = 0.0
         for x, p in self.d.iteritems():
             var += p * (x - mu)**2
