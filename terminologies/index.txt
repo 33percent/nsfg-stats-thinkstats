@@ -1,0 +1,20 @@
+chapter1
+
+1. anectdotal evidence
+2. cross-population study
+3. longitudinal study
+4. cohort and respondent.
+5. oversampling
+6. summary statistics.
+7. apparent effect
+8. statistically significant and artifact.
+
+chapter - 2
+Descriptive statistics
+1. mean and averages.
+2. Variance and standard deviation
+3. Sample Variance
+4. Distributions
+5. Probability
+6. Frequency.
+7. Mode, shape and outliers

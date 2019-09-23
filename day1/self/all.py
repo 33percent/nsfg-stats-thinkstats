@@ -1,6 +1,7 @@
 import sys
 import modules.survey as survey
 import modules.thinkstats as gen_stats
+import modules.Pmf as pmf_fun
 
 # 1.3.1
 print('-------------------------')
@@ -90,4 +91,33 @@ def calculate_gestation(a,b):
     print('standard deviation of gestation period for first born - ',gen_stats.Standard_deviation(first_gest))
     print('standard deviation of gestation period for non-first born - ',gen_stats.Standard_deviation(other_gest))
 calculate_gestation(firstbabies, otherbabies)
+print('-------------------------')
+
+
+print('*************')
+print('Distributions')
+t = [1,2,3,4,1,5,5,4,3,1,4,5,3,1]
+hist = {}
+for x in t:
+    hist[x] = hist.get(x,0) + 1;
+
+print(hist)
+print('normalization of Distributions');
+n = float(len(t))
+pmf = {}
+for x, freq in hist.items():
+    pmf[x] = freq/n
+print(pmf)
+hist = pmf_fun.MakeHistFromList([1,2,2,3,5,5,5,5,2,2])
+print(hist)
+print('histogram frequency', hist.Freq(5))
+print('histogram values', hist.Values())
+for val in sorted(hist.Values()):
+    print(val, hist.Freq(val))
+print('*************')
+
+print('-------------------------')
+print('Example 2.3')
+
+print('Mode of the hist - ',hist.Mode())
 print('-------------------------')
